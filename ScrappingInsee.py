@@ -4,9 +4,13 @@ from fuzzywuzzy import fuzz
 
 # Fonction pour trouver la correspondance la plus proche
 def find_closest_match(name, list_of_names):
+    if not isinstance(name, str):
+        return None  # Retourner None si le nom n'est pas une chaîne
     max_ratio = 0
     closest_match = None
     for candidate in list_of_names:
+        if not isinstance(candidate, str):
+            continue  # Ignorer les candidats non valides
         ratio = fuzz.ratio(name.lower(), candidate.lower())
         if ratio > max_ratio and ratio >= 70:
             max_ratio = ratio
@@ -21,7 +25,7 @@ def get_siren(name, df):
     return None
 
 # Charger le fichier des entreprises
-@st.cache
+@st.cache_data  # Modification ici
 def load_data():
     url = "https://github.com/sedhadcci/ScrappingInsee/raw/main/Fichier%20Insee.xlsx"
     data = pd.read_excel(url)
