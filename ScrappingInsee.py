@@ -23,9 +23,8 @@ def get_siren(name, df):
 # Charger le fichier des entreprises
 @st.cache
 def load_data():
-    # Assurez-vous que l'URL est correcte et que le fichier est accessible publiquement
-    url = "https://github.com/sedhadcci/ScrappingInsee/raw/main/Fichier%20Insee.xlsx" 
-    data = pd.read_csv(url)
+    url = "https://github.com/sedhadcci/ScrappingInsee/raw/main/Fichier%20Insee.xlsx"
+    data = pd.read_excel(url)
     return data
 
 # Interface Streamlit
@@ -33,9 +32,9 @@ def main():
     st.title("Trouver le SIREN des entreprises")
     df = load_data()
 
-    uploaded_file = st.file_uploader("Choisissez un fichier CSV", type="csv")
+    uploaded_file = st.file_uploader("Choisissez un fichier Excel", type=["xlsx", "xls"])
     if uploaded_file is not None:
-        input_data = pd.read_csv(uploaded_file)
+        input_data = pd.read_excel(uploaded_file)
         st.write("Fichier uploadé avec succès. Voici un aperçu :")
         st.write(input_data.head())
 
