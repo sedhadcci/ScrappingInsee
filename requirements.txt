@@ -1,4 +1,4 @@
-openpyxl
-pandas
 streamlit
-xlsxwriter
+fuzzywuzzy
+pandas
+openpyxl
