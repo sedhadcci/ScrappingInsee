@@ -24,7 +24,7 @@ def get_siren(name, df):
 @st.cache
 def load_data():
     # Assurez-vous que l'URL est correcte et que le fichier est accessible publiquement
-    url = "https://raw.githubusercontent.com/your-username/your-repo/master/your-file.csv"
+    url = "https://github.com/sedhadcci/ScrappingInsee/raw/main/Fichier%20Insee.xlsx" 
     data = pd.read_csv(url)
     return data
 
