@@ -50,7 +50,7 @@ def get_identifier_and_denomination(name, df):
 @st.cache_data
 def load_data():
     url = "https://github.com/sedhadcci/ScrappingInsee/raw/main/insee%20entreprise%20informatique.xlsx"
-    data = pd.read_excel(filepath)
+    data = pd.read_excel(url)  # Use 'url' here instead of 'filepath'
     return data
 
 # Interface Streamlit
