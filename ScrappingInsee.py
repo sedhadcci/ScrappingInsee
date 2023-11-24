@@ -47,7 +47,7 @@ def get_identifier_and_denomination(name, df):
     return None, None, None
 
 # Charger le fichier des entreprises avec caching
-@st.cache_data
+@st.cache
 def load_data():
     url = "https://github.com/sedhadcci/ScrappingInsee/raw/main/insee%20entreprise%20informatique.xlsx"
     data = pd.read_excel(url)  # Use 'url' here instead of 'filepath'
